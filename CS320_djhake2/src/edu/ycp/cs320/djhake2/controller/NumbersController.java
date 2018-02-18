@@ -1,7 +1,12 @@
 package edu.ycp.cs320.djhake2.controller;
 
-public class AddNumbersController {
+public class NumbersController {
+
 	public Double add(Double first, Double second) {
 		return first + second;
+	}	
+	
+	public Double multiply(Double first, Double second) {
+		return first * second;
 	}
 }

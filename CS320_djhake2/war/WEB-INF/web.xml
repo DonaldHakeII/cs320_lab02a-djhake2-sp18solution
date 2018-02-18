@@ -15,6 +15,10 @@
     <servlet-class>edu.ycp.cs320.djhake2.servlet.AddNumbersServlet</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>MultiplyNumbersServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.djhake2.servlet.MultiplyNumbersServlet</servlet-class>
+  </servlet>  
+  <servlet>
     <servlet-name>GuessingGameServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.djhake2.servlet.GuessingGameServlet</servlet-class>
   </servlet>
@@ -38,6 +42,10 @@
     <servlet-name>AddNumbersServlet</servlet-name>
     <url-pattern>/addNumbers</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MultiplyNumbersServlet</servlet-name>
+    <url-pattern>/multiplyNumbers</url-pattern>
+  </servlet-mapping>  
   <servlet-mapping>
     <servlet-name>GuessingGameServlet</servlet-name>
     <url-pattern>/guessingGame</url-pattern>

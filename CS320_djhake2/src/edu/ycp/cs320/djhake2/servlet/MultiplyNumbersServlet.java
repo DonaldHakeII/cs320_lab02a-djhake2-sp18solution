@@ -9,24 +9,24 @@ import javax.servlet.http.HttpServletResponse;
 
 import edu.ycp.cs320.djhake2.controller.NumbersController;
 
-public class AddNumbersServlet extends HttpServlet {
+public class MultiplyNumbersServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 
-		System.out.println("AddNumbers Servlet: doGet");	
+		System.out.println("MultiplyNumbers Servlet: doGet");	
 		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/addNumbers.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/multiplyNumbers.jsp").forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("AddNumbers Servlet: doPost");
+		System.out.println("MultiplyNumbers Servlet: doPost");
 		
 
 		// holds the error message text, if there is any
@@ -50,14 +50,14 @@ public class AddNumbersServlet extends HttpServlet {
 			// thus, always call a controller method to operate on the data
 			else {
 				NumbersController controller = new NumbersController();
-				result = controller.add(first, second);
+				result = controller.multiply(first, second);
 			}
 		} catch (NumberFormatException e) {
 			errorMessage = "Invalid double";
 		}
 		
 		// Add parameters as request attributes
-		// this creates attributes named "first" and "second for the response, and grabs the
+		// this creates attributes named "first" and "second" for the response, and grabs the
 		// values that were originally assigned to the request attributes, also named "first" and "second"
 		// they don't have to be named the same, but in this case, since we are passing them back
 		// and forth, it's a good idea
@@ -70,7 +70,7 @@ public class AddNumbersServlet extends HttpServlet {
 		req.setAttribute("result", result);
 		
 		// Forward to view to render the result HTML document
-		req.getRequestDispatcher("/_view/addNumbers.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/multiplyNumbers.jsp").forward(req, resp);
 	}
 
 	// gets double from the request with attribute named s
