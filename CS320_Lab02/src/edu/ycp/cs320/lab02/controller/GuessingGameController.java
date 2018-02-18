@@ -21,7 +21,9 @@ public class GuessingGameController {
 	 * Start a new guessing game by setting the minimum to 1 and the maximum to 100.
 	 */
 	public void startGame() {
-		throw new UnsupportedOperationException("TODO - implement");
+//		throw new UnsupportedOperationException("TODO - implement");
+		model.setMin(1);
+		model.setMax(100);
 	}
 
 	/**
@@ -29,7 +31,10 @@ public class GuessingGameController {
 	 * Set the min and max to the current guess.
 	 */
 	public void setNumberFound() {
-		throw new UnsupportedOperationException("TODO - implement");
+//		throw new UnsupportedOperationException("TODO - implement");
+		int guess = model.getGuess();
+		model.setMin(guess);
+		model.setMax(guess);
 	}
 
 	/**
@@ -37,7 +42,8 @@ public class GuessingGameController {
 	 * is less than the current guess.
 	 */
 	public void setNumberIsLessThanGuess() {
-		throw new UnsupportedOperationException("TODO - implement");
+//		throw new UnsupportedOperationException("TODO - implement");
+		model.setIsLessThan(model.getGuess());
 	}
 
 	/**
@@ -45,6 +51,7 @@ public class GuessingGameController {
 	 * is greater than the current guess.
 	 */
 	public void setNumberIsGreaterThanGuess() {
-		throw new UnsupportedOperationException("TODO - implement");
+//		throw new UnsupportedOperationException("TODO - implement");
+		model.setIsGreaterThan(model.getGuess());
 	}
 }
