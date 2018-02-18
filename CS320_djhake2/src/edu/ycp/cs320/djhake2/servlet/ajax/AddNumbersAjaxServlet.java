@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.ycp.cs320.djhake2.controller.AddNumbersController;
 import edu.ycp.cs320.djhake2.controller.NumbersController;
 
 public class AddNumbersAjaxServlet extends HttpServlet {
