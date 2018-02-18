@@ -30,10 +30,12 @@ public class GuessingGame {
 	}
 	
 	public boolean isDone() {
+		System.out.println("model.isDone");
 		return min == max;
 	}
 	
 	public int getGuess() {
+		System.out.println("model.getGuess");
 		return min + (max-min)/2;
 	}
 	
