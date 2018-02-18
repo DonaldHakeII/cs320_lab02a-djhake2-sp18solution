@@ -32,6 +32,10 @@
 					<td><input type="text" name="second" size="12" value="${second}" /></td>
 				</tr>
 				<tr>
+					<td class="label">Third number:</td>
+					<td><input type="text" name="third" size="12" value="${third}" /></td>
+				</tr>				
+				<tr>
 					<td class="label">Result:</td>
 					<td>${result}</td>
 				</tr>
