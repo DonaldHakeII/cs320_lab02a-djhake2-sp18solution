@@ -28,6 +28,7 @@ public class AddNumbersAjaxServlet extends HttpServlet {
 		// Get parameters
 		Double first = getDouble(req, "first");
 		Double second = getDouble(req, "second");
+		Double third = getDouble(req, "third");
 		
 		// Check whether parameters are valid
 		if (first == null || second == null) {
@@ -37,7 +38,7 @@ public class AddNumbersAjaxServlet extends HttpServlet {
 		
 		// Use a controller to process the request
 		AddNumbersController controller = new AddNumbersController();
-		Double result = controller.add(first, second);
+		Double result = controller.add(first, second, third);
 		
 		// Send back a response
 		resp.setContentType("text/plain");

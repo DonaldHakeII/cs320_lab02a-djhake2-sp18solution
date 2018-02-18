@@ -37,12 +37,13 @@ public class AddNumbersServlet extends HttpServlet {
 		
 		// decode POSTed form parameters and dispatch to controller
 		try {
-			Double first = getDoubleFromParameter(req.getParameter("first"));
+			Double first  = getDoubleFromParameter(req.getParameter("first"));
 			Double second = getDoubleFromParameter(req.getParameter("second"));
-
+			Double third  = getDoubleFromParameter(req.getParameter("third"));
+			
 			// check for errors in the form data before using is in a calculation
-			if (first == null || second == null) {
-				errorMessage = "Please specify two numbers";
+			if (first == null || second == null || third == null) {
+				errorMessage = "Please specify three numbers";
 			}
 			// otherwise, data is good, do the calculation
 			// must create the controller each time, since it doesn't persist between POSTs
@@ -50,7 +51,7 @@ public class AddNumbersServlet extends HttpServlet {
 			// thus, always call a controller method to operate on the data
 			else {
 				AddNumbersController controller = new AddNumbersController();
-				result = controller.add(first, second);
+				result = controller.add(first, second, third);
 			}
 		} catch (NumberFormatException e) {
 			errorMessage = "Invalid double";
@@ -63,6 +64,7 @@ public class AddNumbersServlet extends HttpServlet {
 		// and forth, it's a good idea
 		req.setAttribute("first", req.getParameter("first"));
 		req.setAttribute("second", req.getParameter("second"));
+		req.setAttribute("third", req.getParameter("third"));
 		
 		// add result objects as attributes
 		// this adds the errorMessage text and the result to the response
