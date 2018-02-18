@@ -9,24 +9,24 @@ import javax.servlet.http.HttpServletResponse;
 
 import edu.ycp.cs320.djhake2.controller.NumbersController;
 
-public class AddNumbersServlet extends HttpServlet {
+public class MultiplyNumbersServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 
-		System.out.println("AddNumbers Servlet: doGet");	
+		System.out.println("MultiplyNumbers Servlet: doGet");	
 		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/addNumbers.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/multiplyNumbers.jsp").forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("AddNumbers Servlet: doPost");
+		System.out.println("MultiplyNumbers Servlet: doPost");
 		
 
 		// holds the error message text, if there is any
@@ -37,13 +37,12 @@ public class AddNumbersServlet extends HttpServlet {
 		
 		// decode POSTed form parameters and dispatch to controller
 		try {
-			Double first  = getDoubleFromParameter(req.getParameter("first"));
+			Double first = getDoubleFromParameter(req.getParameter("first"));
 			Double second = getDoubleFromParameter(req.getParameter("second"));
-			Double third  = getDoubleFromParameter(req.getParameter("third"));
-			
+
 			// check for errors in the form data before using is in a calculation
-			if (first == null || second == null || third == null) {
-				errorMessage = "Please specify three numbers";
+			if (first == null || second == null) {
+				errorMessage = "Please specify two numbers";
 			}
 			// otherwise, data is good, do the calculation
 			// must create the controller each time, since it doesn't persist between POSTs
@@ -51,20 +50,19 @@ public class AddNumbersServlet extends HttpServlet {
 			// thus, always call a controller method to operate on the data
 			else {
 				NumbersController controller = new NumbersController();
-				result = controller.add(first, second, third);
+				result = controller.multiply(first, second);
 			}
 		} catch (NumberFormatException e) {
 			errorMessage = "Invalid double";
 		}
 		
 		// Add parameters as request attributes
-		// this creates attributes named "first" and "second for the response, and grabs the
+		// this creates attributes named "first" and "second" for the response, and grabs the
 		// values that were originally assigned to the request attributes, also named "first" and "second"
 		// they don't have to be named the same, but in this case, since we are passing them back
 		// and forth, it's a good idea
 		req.setAttribute("first", req.getParameter("first"));
 		req.setAttribute("second", req.getParameter("second"));
-		req.setAttribute("third", req.getParameter("third"));		
 		
 		// add result objects as attributes
 		// this adds the errorMessage text and the result to the response
@@ -72,7 +70,7 @@ public class AddNumbersServlet extends HttpServlet {
 		req.setAttribute("result", result);
 		
 		// Forward to view to render the result HTML document
-		req.getRequestDispatcher("/_view/addNumbers.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/multiplyNumbers.jsp").forward(req, resp);
 	}
 
 	// gets double from the request with attribute named s

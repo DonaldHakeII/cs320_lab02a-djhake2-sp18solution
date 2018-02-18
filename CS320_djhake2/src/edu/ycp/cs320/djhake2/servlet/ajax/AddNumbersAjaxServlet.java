@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import edu.ycp.cs320.djhake2.controller.AddNumbersController;
+import edu.ycp.cs320.djhake2.controller.NumbersController;
 
 public class AddNumbersAjaxServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -29,7 +30,7 @@ public class AddNumbersAjaxServlet extends HttpServlet {
 		Double first = getDouble(req, "first");
 		Double second = getDouble(req, "second");
 		Double third = getDouble(req, "third");
-		
+				
 		// Check whether parameters are valid
 		if (first == null || second == null) {
 			badRequest("Bad parameters", resp);
@@ -37,9 +38,8 @@ public class AddNumbersAjaxServlet extends HttpServlet {
 		}
 		
 		// Use a controller to process the request
-		AddNumbersController controller = new AddNumbersController();
-		Double result = controller.add(first, second, third);
-		
+		NumbersController controller = new NumbersController();
+		Double result = controller.add(first, second, third);		
 		// Send back a response
 		resp.setContentType("text/plain");
 		resp.getWriter().println(result.toString());
