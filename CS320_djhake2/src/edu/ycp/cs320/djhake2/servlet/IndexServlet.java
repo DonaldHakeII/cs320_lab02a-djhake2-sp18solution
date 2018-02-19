@@ -7,8 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.ycp.cs320.djhake2.controller.GuessingGameController;
-import edu.ycp.cs320.djhake2.model.GuessingGame;
 
 public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
