@@ -37,6 +37,7 @@ public class AddNumbersServlet extends HttpServlet {
 		
 		// decode POSTed form parameters and dispatch to controller
 		try {
+			// extracting first, second, third values from "first", "second, 'third" attributes in HTTP request
 			Double first  = getDoubleFromParameter(req.getParameter("first"));
 			Double second = getDoubleFromParameter(req.getParameter("second"));
 			Double third  = getDoubleFromParameter(req.getParameter("third"));
@@ -58,8 +59,8 @@ public class AddNumbersServlet extends HttpServlet {
 		}
 		
 		// Add parameters as request attributes
-		// this creates attributes named "first" and "second for the response, and grabs the
-		// values that were originally assigned to the request attributes, also named "first" and "second"
+		// this creates attributes named "first", "second", and "third" for the response, and grabs the
+		// values that were originally assigned to the request attributes, also named "first", "second", and "third"
 		// they don't have to be named the same, but in this case, since we are passing them back
 		// and forth, it's a good idea
 		req.setAttribute("first", req.getParameter("first"));
