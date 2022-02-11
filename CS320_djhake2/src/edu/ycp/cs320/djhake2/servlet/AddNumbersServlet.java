@@ -45,6 +45,7 @@ public class AddNumbersServlet extends HttpServlet {
 			
 			// check for errors in the form data before using is in a calculation
 			// null means that a number was not entered
+			// a different change in the comments to generate a merge conflict
 			if (first == null || second == null || third == null) {
 				errorMessage = "Please specify three numbers";
 			}
