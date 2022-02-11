@@ -38,6 +38,7 @@ public class AddNumbersServlet extends HttpServlet {
 		// decode POSTed form parameters and dispatch to controller
 		try {
 			// extracting first, second, third values from "first", "second, 'third" attributes in HTTP request
+			// if this fails, we'll issue an error message in the catch
 			Double first  = getDoubleFromParameter(req.getParameter("first"));
 			Double second = getDoubleFromParameter(req.getParameter("second"));
 			Double third  = getDoubleFromParameter(req.getParameter("third"));
