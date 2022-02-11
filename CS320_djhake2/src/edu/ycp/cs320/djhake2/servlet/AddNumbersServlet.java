@@ -44,6 +44,8 @@ public class AddNumbersServlet extends HttpServlet {
 			Double third  = getDoubleFromParameter(req.getParameter("third"));
 			
 			// check for errors in the form data before using is in a calculation
+			// this should create a merge conflict, since I made a different change here,
+			// and pushed from another computer
 			if (first == null || second == null || third == null) {
 				errorMessage = "Please specify three numbers";
 			}
